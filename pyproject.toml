@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "micropsi-test"
+description = 'Micropsi test solution'
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+version = "0.0.1"
+
+[tool.hatch.envs.default]
+dependencies = [
+    "pytest",
+    "pytest-cov",
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=micropsi_test --cov=tests"
+no-cov = "cov --no-cov"
+
+[tool.hatch.envs.lint]
+detached = true
+dependencies = [
+    "ruff",
+    "black",
+    "pyright",
+]
+
+[tool.hatch.envs.lint.scripts]
+check = [
+    "ruff --fix .",
+    "black .",
+    "pyright ."
+]
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+
+[tool.pyright]
+include = ["micropsi_test"]
+pythonPlatform = "All"
+
+[tool.ruff]
+src = ["micropsi_test"]
+extend-select = ["I"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+    "micropsi_test/__main__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

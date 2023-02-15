@@ -74,7 +74,7 @@ def find_min(arg: Sequence[SupportsLessThanT], /) -> SupportsLessThanT:
         raise ValueError("find_min() arg is an empty sequence")
 
     # sanity check for debug. can be disabled with ``-O`` flag to python
-    assert _given_conditions_apply(arg), 'Provided sequence does not satisfy conditions'
+    assert _given_conditions_apply(arg), "Provided sequence does not satisfy conditions"
 
     low_idx, high_idx = 0, len(arg) - 1
 

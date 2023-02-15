@@ -34,7 +34,7 @@ def _given_conditions_apply(arg: Sequence[SupportsLessThanT]) -> bool:
     # and everything to its left should decrease while everything
     # to the right should increase
     min_idx = arg.index(min(arg))
-    first_strictly_decreasing = all(a > b for a, b in pairwise(arg[:min_idx + 1]))
+    first_strictly_decreasing = all(b < a for a, b in pairwise(arg[: min_idx + 1]))
     remaining_strictly_increasing = all(a < b for a, b in pairwise(arg[min_idx:]))
     return first_strictly_decreasing and remaining_strictly_increasing
 

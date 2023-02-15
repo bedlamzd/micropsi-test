@@ -29,6 +29,11 @@ python3 -m pip install micropsi_test-0.0.1-py3-none-any.whl
 ```shell
 python3 -m micropsi_test --help  # prints usage
 python3 -m micropsi_test 3 2 1 4 5  # 1.0
+
+# OR EQUIVALENTLY
+
+micropsi_test --help 
+micropsi_test 3 2 1 4 5
 ```
 
 ### As a package

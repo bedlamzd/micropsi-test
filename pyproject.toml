@@ -15,6 +15,9 @@ classifiers = [
 ]
 version = "0.0.1"
 
+[project.scripts]
+micropsi_test = "micropsi_test.cli:main"
+
 [tool.hatch.envs.default]
 dependencies = [
     "pytest",
